@@ -36,6 +36,14 @@ function agvi(){
 fi
 }
 
+# cd to git repo top dir
+function u() {
+  local top_git_dir=$(git rev-parse --show-superproject-working-tree --show-toplevel)
+  if [ $! -eq 0 ]; then
+    cd $top_git_dir
+  fi
+}
+
 # Ruby
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
